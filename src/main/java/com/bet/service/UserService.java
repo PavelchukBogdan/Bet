@@ -1,5 +1,6 @@
 package com.bet.service;
 
+import com.bet.domain.dto.UserLogInDto;
 import com.bet.domain.dto.UserSignUpDto;
 
 /**
@@ -10,4 +11,6 @@ import com.bet.domain.dto.UserSignUpDto;
  */
 public interface UserService {
      UserSignUpDto signUp(UserSignUpDto userSignUpDto);
+     String logIn(UserLogInDto userLogInDto);
+
 }
