@@ -35,11 +35,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "team")
 public class Team extends Identifiable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
-
     @Column
     @NotNull
     private String name;

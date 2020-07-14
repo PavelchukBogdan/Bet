@@ -39,11 +39,6 @@ import java.util.List;
 @Table(name = "match")
 public class Match extends Identifiable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
-
     @Column
     @NotNull
     private LocalDateTime matchDate;

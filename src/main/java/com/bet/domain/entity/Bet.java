@@ -36,11 +36,6 @@ import java.time.LocalDateTime;
 @Table(name = "bet")
 public class Bet extends Identifiable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

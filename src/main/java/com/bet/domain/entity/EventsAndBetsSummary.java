@@ -26,11 +26,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "events_and_bets_summary")
 public class EventsAndBetsSummary extends Identifiable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
     @NotNull
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "bet_id")

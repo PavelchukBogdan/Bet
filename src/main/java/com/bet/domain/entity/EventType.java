@@ -33,11 +33,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "event_type")
 public class EventType extends Identifiable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
     @Column
     @NotNull
     private String eventTypeName;

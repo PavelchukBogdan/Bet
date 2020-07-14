@@ -32,10 +32,6 @@ import java.util.List;
 @Table(name = "kind_of_sport")
 public class KindOfSport  extends Identifiable{
 
-    @Id
-    @Column(name = "id", nullable = false, updatable = false)
-    private Long id;
-
     @Column
     @NotNull
     private String kindOfSportName;
