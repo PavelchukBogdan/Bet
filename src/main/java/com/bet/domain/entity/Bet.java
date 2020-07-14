@@ -1,12 +1,24 @@
 package com.bet.domain.entity;
 
-import com.sun.istack.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Bet- Ставка
@@ -23,6 +35,11 @@ import java.util.Set;
 @Entity
 @Table(name = "bet")
 public class Bet extends Identifiable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -43,16 +60,4 @@ public class Bet extends Identifiable {
     @Column
     @NotNull
     private Long result;
-
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "bet_event_type_match",
-            joinColumns = { @JoinColumn(name = "bet_id") },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "event_type_id"),
-                    @JoinColumn(name = "match_id")}
-    )
-    private Set<EventTypeMatch> eventTypeMatchSet = new HashSet<>();
-
-
 }

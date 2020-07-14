@@ -1,9 +1,24 @@
 package com.bet.domain.entity;
 
-import com.sun.istack.NotNull;
-import lombok.*;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,27 +39,38 @@ import java.util.List;
 @Table(name = "match")
 public class Match extends Identifiable {
 
-    @Column
-    @NotNull
-    private LocalDateTime dateEvent;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
 
     @Column
     @NotNull
-    private String nameEvent;
+    private LocalDateTime matchDate;
+
+    @Column
+    @NotNull
+    private String matchName;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "home_team_id", nullable = false)
-    private Team team;
+    private Team homeTeam;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guest_team_id", nullable = false)
-    private Team team1;
+    private Team guestTeam;
+
+    @Column
+    private Integer homeTeamScore;
+
+    @Column
+    private Integer guestTeamScore;
 
     @OneToMany(mappedBy = "match",
     cascade = CascadeType.ALL,
     orphanRemoval = true)
-    private List<EventTypeMatch> matches = new ArrayList<>();
+    private List<EventType> eventTypes = new ArrayList<>();
 
 
 }

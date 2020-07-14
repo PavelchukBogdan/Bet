@@ -1,11 +1,19 @@
 package com.bet.domain.entity;
 
-import com.sun.istack.NotNull;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * KindOfSport - Виды спорта
@@ -24,7 +32,17 @@ import javax.persistence.Table;
 @Table(name = "kind_of_sport")
 public class KindOfSport  extends Identifiable{
 
+    @Id
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
+
     @Column
     @NotNull
-    private String kindOfSport;
+    private String kindOfSportName;
+
+    @OneToMany(mappedBy = "kindOfSport")
+    private List<EventType> eventTypes;
+
+    @OneToMany(mappedBy = "kindOfSport")
+    private List<Team> teams;
 }
