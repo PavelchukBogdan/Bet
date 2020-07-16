@@ -58,13 +58,13 @@ public class UserServiceImpl implements UserService {
       if(user != null){
           throw new IllegalArgumentException(String.format("Пользователь с email %s уже существует ", userSignUpDto.getEmail()));
       }
-       user = UserMapper.mapSignUpDtoToUser(userSignUpDto);
+       user = UserMapper.USER_MAPPER.mapSignUpDtoToUser(userSignUpDto);
        user.setPassword(passwordEncoder.encode(userSignUpDto.getPassword()));
 
-      Role role =  roleRepository.findByRole(ROLE_NAME).orElseThrow(()-> new IllegalArgumentException(String.format("Роли %s  в базе данных не существует")));
+      Role role =  roleRepository.findByRole(ROLE_NAME).orElseThrow(()-> new IllegalArgumentException(String.format("Роли %s  в базе данных не существует", ROLE_NAME)));
       user.setRole(role);
      user = userRepository.save(user);
-     UserSignUpDto resultDto =  UserMapper.mapUserToSignUpDto(user);
+     UserSignUpDto resultDto =  UserMapper.USER_MAPPER.mapUserToSignUpDto(user);
      resultDto.setPassword(null);
      return resultDto;
 
