@@ -1,9 +1,13 @@
 package com.bet.domain.entity;
 
-import com.sun.istack.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +31,10 @@ public class EventType extends Identifiable {
     @NotNull
     private String eventType;
 
-    @OneToMany(mappedBy = "eventType",
-    cascade = CascadeType.ALL,
-    orphanRemoval = true)
-    private List<EventTypeMatch> eventTypes = new ArrayList<>();
+    @NotNull
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "kind_of_sport_id")
+    private KindOfSport kindOfSport;
+
+
 }

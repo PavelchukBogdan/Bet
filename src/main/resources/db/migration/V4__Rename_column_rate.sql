@@ -1,0 +1,1 @@
+ALTER TABLE public.events_bet_match RENAME COLUMN bet TO rate;
