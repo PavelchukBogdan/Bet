@@ -4,6 +4,8 @@ import com.bet.domain.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * TeamRepository - репозиторий для работы с командами
  *
@@ -13,4 +15,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeamRepository extends JpaRepository<Team, String> {
+
+    List<Team> findAllByKindOfSportId(String kindOfSportId);
 }
