@@ -56,6 +56,10 @@ public class Match extends Identifiable {
     @JoinColumn(name = "guest_team_id", nullable = false)
     private Team guestTeam;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "kind_of_sport_id", nullable = false)
+    private KindOfSport kindOfSport;
+
     @Column
     private Integer homeTeamScore;
 
