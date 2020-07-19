@@ -4,6 +4,8 @@ import com.bet.domain.entity.EventType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * EvenTypeRepository - репозиторий для работы с типом события
  *
@@ -12,5 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface EvenTypeRepository extends JpaRepository<EventType,String> {
+public interface EventTypeRepository extends JpaRepository<EventType,String> {
+
+    List<EventType> findAllByKindOfSportId(String kindOfSportId);
 }

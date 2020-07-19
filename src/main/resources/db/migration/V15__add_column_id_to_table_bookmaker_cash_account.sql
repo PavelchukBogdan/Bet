@@ -1,0 +1,1 @@
+ALTER TABLE public.bookmaker_cash_account ADD id varchar NOT NULL;

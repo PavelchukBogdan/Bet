@@ -1,11 +1,16 @@
 package com.bet.domain.entity;
 
-import com.sun.istack.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -26,5 +31,9 @@ public class Status extends Identifiable {
 
     @Column
     @NotNull
-    private String status;
+    private String code;
+
+    @Column
+    @NotBlank
+    private String value;
 }
