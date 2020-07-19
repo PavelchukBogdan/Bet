@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**
- * EventTypeMapper - mapper сущности  EventType
+ * EventTypeMapper - mapper для сущности  EventType
  *
  * @author Павельчук Богдан (pavelchuk.b)
  * @since 17.07.2020

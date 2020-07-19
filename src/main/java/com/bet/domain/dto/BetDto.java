@@ -1,42 +1,52 @@
 package com.bet.domain.dto;
 
-import com.bet.domain.entity.KindOfSport;
-import com.bet.domain.entity.Team;
+import com.bet.domain.entity.Status;
+import com.bet.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
- * MatchDto - dto для создания матча
+ * BetDto - dto для сущности Bet
  *
  * @author Павельчук Богдан (pavelchuk.b)
- * @since 17.07.2020
+ * @since 18.07.2020
  */
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class MatchDto {
+@AllArgsConstructor
+public class BetDto {
+
 
     private String id;
 
     @NotBlank
-    private Team homeTeam;
+    private LocalDateTime betDate;
 
     @NotBlank
-    private Team guestTeam;
+    private Double invested;
 
     @NotBlank
-    private KindOfSport kindOfSport;
+    private Double result;
 
     @NotBlank
-    private LocalDateTime matchDate;
+    private User user;
 
     @NotBlank
-    private String matchName;
+    private Status status;
+
+    @NotNull
+    private Double coefficientBet;
+
+
+
+
+
 }

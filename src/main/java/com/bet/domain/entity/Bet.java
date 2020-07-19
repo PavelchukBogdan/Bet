@@ -50,9 +50,13 @@ public class Bet extends Identifiable {
 
     @Column
     @NotNull
-    private Long invested;
+    private Double invested;
 
     @Column
     @NotNull
-    private Long result;
+    private Double result;
+
+    @Column
+    @NotNull
+    private Double coefficientBet;
 }

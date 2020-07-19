@@ -1,0 +1,1 @@
+ALTER TABLE public." coefficient" RENAME TO coefficient;

@@ -4,36 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-
 /**
- * Status - Статус ставки
+ * BookmakerCashAccount - сущность денежного счета букмерской конторы
  *
  * @author Павельчук Богдан (pavelchuk.b)
- * @since 09.07.2020
+ * @since 19.07.2020
  */
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 @Entity
-@Table(name = "status")
-public class Status extends Identifiable {
+@Table(name = "bookmaker_cash_account")
+public class BookmakerCashAccount extends Identifiable {
 
     @Column
     @NotNull
-    private String code;
-
-    @Column
-    @NotBlank
-    private String value;
+    private Double cash;
 }

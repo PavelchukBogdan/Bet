@@ -7,9 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 /**
  * EventType - Тип события
@@ -28,13 +26,17 @@ import java.util.List;
 public class EventType extends Identifiable {
 
     @Column
-    @NotNull
+    @NotBlank
     private String eventType;
 
-    @NotNull
+    @NotBlank
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "kind_of_sport_id")
     private KindOfSport kindOfSport;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "even_time_id", nullable = false)
+    private EventTime eventTime;
 
 
 }

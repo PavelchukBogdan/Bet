@@ -20,7 +20,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class TeamDto {
 
-    @NotBlank
+
     private String id;
 
     @NotBlank

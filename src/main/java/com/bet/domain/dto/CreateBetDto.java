@@ -1,33 +1,32 @@
 package com.bet.domain.dto;
 
+import com.bet.domain.entity.Match;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
- * EventTypeDto - dto для создание типов событий
+ * CreateBetDto - dto для создания ставки
  *
  * @author Павельчук Богдан (pavelchuk.b)
- * @since 17.07.2020
+ * @since 18.07.2020
  */
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventTypeDto {
+public class CreateBetDto {
 
+    @NotNull
+    private BetDto betDto;
 
-    private String id;
+    @NotNull
+    private String match;
 
-    @NotBlank
+    @NotNull
     private String eventType;
-
-    @NotBlank
-    private KindOfSportDto kindOfSportDto;
-
-
 }

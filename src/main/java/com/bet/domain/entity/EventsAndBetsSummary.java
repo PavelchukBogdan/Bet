@@ -41,12 +41,6 @@ public class EventsAndBetsSummary extends Identifiable {
     @JoinColumn(name = "match_id")
     private Match match;
 
-    @Column
-    @NotNull
-    private Long rate;
 
-    @NotNull
-    @Column
-    private Long result;
 
 }

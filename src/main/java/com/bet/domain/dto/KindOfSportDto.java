@@ -21,7 +21,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class KindOfSportDto {
 
-    @NotBlank
+
     private String id;
 
     @NotBlank

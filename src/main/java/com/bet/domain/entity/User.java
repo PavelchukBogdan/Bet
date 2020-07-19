@@ -62,9 +62,9 @@ public class User extends Identifiable  {
 
     @Column
     @NotNull
-    private Long cashAccount;
+    private Double cashAccount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
