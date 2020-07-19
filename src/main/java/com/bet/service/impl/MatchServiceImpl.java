@@ -7,6 +7,7 @@ import com.bet.domain.repository.MatchRepository;
 import com.bet.service.MatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * MatchServiceImpl - имплементация сервиса для работы с мачтем
@@ -22,6 +23,7 @@ public class MatchServiceImpl  implements MatchService {
     private final MatchRepository matchRepository;
 
 
+    @Transactional
     @Override
     public MatchDto createMatch(MatchDto matchDto) {
         Match match = MatchMapper.MATCH_MAPPER.mapMatchDtoToMatch(matchDto);
